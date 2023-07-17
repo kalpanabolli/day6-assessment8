@@ -1,0 +1,8 @@
+D:\Simply Learn\day6\day6 assessment\day6 assessment\bin\Debug\day6 assessment.exe.config
+D:\Simply Learn\day6\day6 assessment\day6 assessment\bin\Debug\day6 assessment.exe
+D:\Simply Learn\day6\day6 assessment\day6 assessment\bin\Debug\day6 assessment.pdb
+D:\Simply Learn\day6\day6 assessment\day6 assessment\obj\Debug\day6 assessment.csproj.AssemblyReference.cache
+D:\Simply Learn\day6\day6 assessment\day6 assessment\obj\Debug\day6 assessment.csproj.SuggestedBindingRedirects.cache
+D:\Simply Learn\day6\day6 assessment\day6 assessment\obj\Debug\day6 assessment.csproj.CoreCompileInputs.cache
+D:\Simply Learn\day6\day6 assessment\day6 assessment\obj\Debug\day6 assessment.exe
+D:\Simply Learn\day6\day6 assessment\day6 assessment\obj\Debug\day6 assessment.pdb
