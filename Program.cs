@@ -1,49 +1,91 @@
 ﻿using System;
-namespace day6_assessment
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Assignment8
 {
-    public class calc
-    {
-
-        public double Calculate(double projectHandles = 1, double extras = 0)
-        {
-            Console.WriteLine("Enter no.of working hours per day");
-            int WorkingHours = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter no.of working Days in a month");
-            int workingDays = int.Parse(Console.ReadLine());
-
-            double result = WorkingHours * workingDays + projectHandles * 3000 + extras * 2000;
-            return result;
-        }
-    }
     internal class Program
     {
         static void Main(string[] args)
         {
-            calc obj = new calc();
-            Console.WriteLine("Please Enter your role");
-            string role = Console.ReadLine();
-            switch (role)
+            string choice;
+
+            Console.WriteLine("Choose Employee Type:");
+            Console.WriteLine(" HR");
+            Console.WriteLine(" Admin");
+            Console.WriteLine("Software Developer");
+            do
             {
-                case "HR":
-                    Console.WriteLine($"Monthly salary of the {role} is:\t" + obj.Calculate());
-                    break;
-                case "Admin":
-                    Console.WriteLine("Please enter your projrctHandles");
-                    int p1 = int.Parse(Console.ReadLine());
-                    Console.WriteLine($"Monthly salary of the {role} is:\t" + obj.Calculate(p1));
-                    break;
-                case "SoftwareDeveloper":
-                    Console.WriteLine("Please enter your projrctHandles");
-                    int p2 = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Please enter your extras");
-                    int extras = int.Parse(Console.ReadLine());
-                    Console.WriteLine($"Monthly salary of the {role} is:\t" + obj.Calculate(p2, extras));
-                    break;
-                default:
-                    Console.WriteLine("please Enter valid role");
-                    break;
+                Console.Write("Enter the employee type : ");
+                string employeeType = Console.ReadLine().ToUpper();
+                //string str = employeeType.ToUpper();
+                // Console.WriteLine(employeeType);
+                int wHour, nWDays, projectHandles, extras;
+                double monthlySalary;
+
+
+                try
+                {
+
+                    switch (employeeType)
+                    {
+                        case "HR":
+                            Console.Write("Enter working hours: ");
+                            wHour = int.Parse(Console.ReadLine());
+                            Console.Write("Enter number of working days: ");
+                            nWDays = int.Parse(Console.ReadLine());
+                            monthlySalary = CalculateSalary(wHour, nWDays);
+                            Console.WriteLine("Monthly Salary: $" + monthlySalary);
+                            break;
+
+                        case "ADMIN":
+                            Console.Write("Enter working hours: ");
+                            wHour = int.Parse(Console.ReadLine());
+                            Console.Write("Enter number of working days: ");
+                            nWDays = int.Parse(Console.ReadLine());
+                            Console.Write("Enter project handles: ");
+                            projectHandles = int.Parse(Console.ReadLine());
+
+                            monthlySalary = CalculateSalary(wHour, nWDays, projectHandles);
+                            Console.WriteLine("Monthly Salary: $" + monthlySalary);
+                            break;
+
+                        case "SOFTWARE DEVELOPER":
+                            Console.Write("Enter working hours: ");
+                            wHour = int.Parse(Console.ReadLine());
+                            Console.Write("Enter number of working days: ");
+                            nWDays = int.Parse(Console.ReadLine());
+                            Console.Write("Enter project handles: ");
+                            projectHandles = int.Parse(Console.ReadLine());
+                            Console.Write("Enter extras: ");
+                            extras = int.Parse(Console.ReadLine());
+
+                            monthlySalary = CalculateSalary(wHour, nWDays, projectHandles, extras);
+                            Console.WriteLine("Monthly Salary: $" + monthlySalary);
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid employee type!");
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error!" + ex.Message);
+                }
+                Console.WriteLine("Do you want any other Role \n If yes press y \n to exit press any key");
+                choice = Console.ReadLine().ToLower();
             }
-            Console.ReadKey();
+            while (choice == "y");
+
+        }
+        static double CalculateSalary(int wHour, int nWDays, int projectHandles = 0, int extras = 0)
+        {
+            double total = wHour * nWDays * 100 + projectHandles * 3000 + extras * 2000;
+            return total;
         }
     }
 }
